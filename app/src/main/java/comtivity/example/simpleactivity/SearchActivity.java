@@ -2,10 +2,7 @@ package comtivity.example.simpleactivity;
 
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-//import android.support.v7.app.ActionBar;
-//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
