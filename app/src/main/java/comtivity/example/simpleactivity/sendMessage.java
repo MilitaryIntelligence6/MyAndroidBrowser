@@ -1,24 +1,21 @@
 package comtivity.example.simpleactivity;
 
-import android.util.Log;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
-import javax.activation.DataHandler;
 
 //用来发送邮件的类
 public class sendMessage extends Thread {
-    private String recemail, mailtheme, mailtext, sendername,sendmail, senderpass;
-    sendMessage(String recemail,String mailtheme,String mailtext,String sendername,String sendmail,String senderpass){
-        this.recemail=recemail;
-        this.mailtheme=mailtheme;
-        this.mailtext=mailtext;
-        this.sendername=sendername;
-        this.sendmail=sendmail;
-        this.senderpass=senderpass;
+    private String recemail, mailtheme, mailtext, sendername, sendmail, senderpass;
+
+    sendMessage(String recemail, String mailtheme, String mailtext, String sendername, String sendmail, String senderpass) {
+        this.recemail = recemail;
+        this.mailtheme = mailtheme;
+        this.mailtext = mailtext;
+        this.sendername = sendername;
+        this.sendmail = sendmail;
+        this.senderpass = senderpass;
     }
+
     @Override
     public void run() {
         SimpleEmail email = new SimpleEmail();

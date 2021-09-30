@@ -16,10 +16,11 @@ import androidx.appcompat.widget.Toolbar;
 /**
  * @author javaman
  */ //发送邮件活动
-public class MailActivity extends AppCompatActivity implements View.OnClickListener{
+public class MailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText reciveMailText,mailThemeText,mailContainText,senderName,senderMailText,senderMailPassword;
-    private Button reSet,send;
+    private EditText reciveMailText, mailThemeText, mailContainText, senderName, senderMailText, senderMailPassword;
+    private Button reSet, send;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,7 +30,7 @@ public class MailActivity extends AppCompatActivity implements View.OnClickListe
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar!=null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -45,7 +46,7 @@ public class MailActivity extends AppCompatActivity implements View.OnClickListe
         reSet.setOnClickListener(this);
         send.setOnClickListener(this);
 
-       //提示用户使用注意事项
+        //提示用户使用注意事项
         AlertDialog.Builder dialog = new AlertDialog.Builder(MailActivity.this);
         dialog.setTitle("使用提示");
         dialog.setMessage("请确保您的邮箱已开通SMTP服务。");
@@ -62,7 +63,7 @@ public class MailActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             //重置所有输入
             case R.id.reset_bt:
                 reciveMailText.setText("");
@@ -74,19 +75,20 @@ public class MailActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //发送邮件
             case R.id.send_bt:
-                new sendMessage(reciveMailText.getText().toString(),mailThemeText.getText().toString(),mailContainText.getText().toString(),
-                        senderName.getText().toString(),senderMailText.getText().toString(),senderMailPassword.getText().toString()).start();
-                Toast.makeText(MailActivity.this,"已发送",Toast.LENGTH_SHORT).show();
+                new sendMessage(reciveMailText.getText().toString(), mailThemeText.getText().toString(), mailContainText.getText().toString(),
+                        senderName.getText().toString(), senderMailText.getText().toString(), senderMailPassword.getText().toString()).start();
+                Toast.makeText(MailActivity.this, "已发送", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
         }
     }
+
     //设置返回事件
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-           //toolbar返回事件
+        switch (item.getItemId()) {
+            //toolbar返回事件
             case android.R.id.home:
                 finish();
                 break;

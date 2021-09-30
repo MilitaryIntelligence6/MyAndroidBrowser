@@ -93,6 +93,7 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
             {"", "*/*"}
     };
     public DownloadServices.DownloadBinder downloadBinder = null;
+    String data = null;
     //绑定服务
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -106,12 +107,9 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
     };
     private EditText Etext;
     private TextProgressBar progressBar;
-
     private Button downButton;
     private Button pauseButton;
     private Button viewButton;
-
-    String data = null;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,7 +193,9 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
         startActivity(intent);
     }
 
-    //获取文件MIME类型
+    /**
+     *  获取文件MIME类型
+     * */
     private String getMIMEType(File file) {
 
         String type = "*/*";

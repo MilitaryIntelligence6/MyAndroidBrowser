@@ -30,7 +30,7 @@ public class CollectActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_collect);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar!=null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -38,31 +38,31 @@ public class CollectActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.recycler_veiw);
 
         //自定义适配器传入数据
-        CollectAdapter collectAdapter = new CollectAdapter(CollectActivity.this,R.layout.collect_item,getCollection());
+        CollectAdapter collectAdapter = new CollectAdapter(CollectActivity.this, R.layout.collect_item, getCollection());
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(CollectActivity.this,android.R.layout.simple_list_item_1,getCollection());
         listView.setAdapter(collectAdapter);
         //设置点击事件
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(CollectActivity.this,MainActivity.class);
-                intent.putExtra("collect_URL",getCollection()[position].split(" ")[1]);
+                Intent intent = new Intent(CollectActivity.this, MainActivity.class);
+                intent.putExtra("collect_URL", getCollection()[position].split(" ")[1]);
                 startActivity(intent);
             }
         });
     }
 
     //获取收藏记录转换为字符串数组
-    private String[] getCollection(){
-        collectUrl = getSharedPreferences("collection",MODE_PRIVATE);
-        Map<String,?> map = collectUrl.getAll();
+    private String[] getCollection() {
+        collectUrl = getSharedPreferences("collection", MODE_PRIVATE);
+        Map<String, ?> map = collectUrl.getAll();
         //StringBuilder temp = new StringBuilder();
         String ssr[] = new String[map.size()];
-        int i=0;
+        int i = 0;
         Iterator iter = map.entrySet().iterator();
         while (iter.hasNext()) {
             Map.Entry entry = (Map.Entry) iter.next();
-            ssr[i]=entry.getValue().toString();
+            ssr[i] = entry.getValue().toString();
             i++;
         }
         return ssr;
@@ -71,7 +71,7 @@ public class CollectActivity extends AppCompatActivity {
     //设置返回事件
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             //toolbar的返回键设置
             case android.R.id.home:
                 finish();
